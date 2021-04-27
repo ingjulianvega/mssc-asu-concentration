@@ -1,0 +1,38 @@
+#Application
+application-name: @artifactId@
+application-description: @project.description@
+application-version: @project.version@
+contact-name: Julián Camilo Vega Rocha
+contact-email: ingjulianvega@gmail.com
+contact-url: https://twitter.com/ingjulianvega
+
+spring:
+  application:
+    name: ssc-asu-concentration
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MYSQL
+  #Cache
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+#General configuration
+server:
+  port: 8105
+  servlet:
+    context-path: /asu/v1/concentration
+#Logging
+logging:
+  level:
+    root: DEBUG
+#Exceptions
+concentration:
+  success: The operation was successful.
+  prefix: 'API-CT:'
+  error:
+    general: There was an unexpected error. Please try again.
+
