@@ -5,34 +5,20 @@
     <parent>
         <groupId>ingjulianvega.ximic</groupId>
         <artifactId>mssc-asu-bom</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
-    <groupId>ingjulianvega.ximic</groupId>
+
     <artifactId>mssc-asu-concentration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mssc-asu-concentration</name>
     <description>ASU concentration microservice (concentración)</description>
+
     <properties>
         <!--set this to your docker acct name-->
         <docker.image.prefix>ingjulianvega</docker.image.prefix>
         <!--Set to name of project-->
         <docker.image.name>mssc-asu-concentration</docker.image.name>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.cache</groupId>
-            <artifactId>cache-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
