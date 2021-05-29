@@ -22,6 +22,9 @@ spring:
   cache:
     jcache:
       config: classpath:ehcache.xml
+  #Zipkin
+  zipkin:
+    enabled: false
 #General configuration
 server:
   port: 8105
