@@ -24,7 +24,7 @@ spring:
       config: classpath:ehcache.xml
   #Zipkin
   zipkin:
-    enabled: false
+    baseUrl: http://localhost:9411/
 #General configuration
 server:
   port: 8105
