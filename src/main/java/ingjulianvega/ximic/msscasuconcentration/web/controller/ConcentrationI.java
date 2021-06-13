@@ -35,7 +35,7 @@ public interface ConcentrationI {
     @RequestMapping(value = "/",
             produces = {"application/json"},
             method = RequestMethod.GET)
-    ResponseEntity<ConcentrationList> get();
+    ResponseEntity<ConcentrationList> get(@Parameter(in = ParameterIn.QUERY, description = "The using of cache", required = true, schema = @Schema()) Boolean usingCache);
 
     @Operation(summary = "Endpoint to get the information of a concentration given the id", description = "Returns a concentration", tags = {"concentration"})
     @ApiResponses(value = {

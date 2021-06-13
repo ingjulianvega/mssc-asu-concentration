@@ -5,58 +5,11 @@
     <parent>
         <groupId>ingjulianvega.ximic</groupId>
         <artifactId>mssc-asu-bom</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>mssc-asu-concentration</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>mssc-asu-concentration</name>
     <description>ASU concentration microservice (concentración)</description>
-
-    <properties>
-        <!--set this to your docker acct name-->
-        <docker.image.prefix>ingjulianvega</docker.image.prefix>
-        <!--Set to name of project-->
-        <docker.image.name>mssc-asu-concentration</docker.image.name>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.33.0</version>
-                <configuration>
-                    <dockerHost>unix:///var/run/docker.sock</dockerHost>
-                    <verbose>true</verbose>
-                    <images>
-                        <image>
-                            <name>${docker.image.prefix}/${docker.image.name}</name>
-                            <build>
-                                <dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
-                                <assembly>
-                                    <descriptorRef>artifact</descriptorRef>
-                                </assembly>
-                                <tags>
-                                    <tag>latest</tag>
-                                    <tag>${project.version}</tag>
-                                </tags>
-                            </build>
-                        </image>
-                    </images>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

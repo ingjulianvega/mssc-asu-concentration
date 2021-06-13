@@ -23,9 +23,9 @@ public class ConcentrationServiceImpl implements ConcentrationService {
     private final ConcentrationRepository concentrationRepository;
     private final ConcentrationMapper concentrationMapper;
 
-    @Cacheable(cacheNames = "concentrationListCache")
+    @Cacheable(cacheNames = "concentrationListCache", condition = "#usingCache == false")
     @Override
-    public ConcentrationList get() {
+    public ConcentrationList get(Boolean usingCache) {
         log.debug("get()...");
         return ConcentrationList
                 .builder()

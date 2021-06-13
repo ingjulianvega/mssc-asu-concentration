@@ -8,7 +8,7 @@ import ingjulianvega.ximic.msscasuconcentration.web.model.ConcentrationList;
 import java.util.UUID;
 
 public interface ConcentrationService {
-    ConcentrationList get();
+    ConcentrationList get(Boolean usingCache);
 
     ConcentrationDto getById(UUID id);
 

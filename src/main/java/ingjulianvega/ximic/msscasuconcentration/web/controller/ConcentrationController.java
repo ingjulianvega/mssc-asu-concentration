@@ -25,8 +25,8 @@ public class ConcentrationController implements ConcentrationI {
     private final ConcentrationService concentrationService;
 
     @Override
-    public ResponseEntity<ConcentrationList> get() {
-        return new ResponseEntity<>(concentrationService.get(), HttpStatus.OK);
+    public ResponseEntity<ConcentrationList> get(Boolean usingCache) {
+        return new ResponseEntity<>(concentrationService.get(usingCache), HttpStatus.OK);
     }
 
     @Override

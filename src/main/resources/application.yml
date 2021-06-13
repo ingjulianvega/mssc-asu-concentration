@@ -37,7 +37,11 @@ logging:
 #Exceptions
 concentration:
   success: The operation was successful.
-  prefix: 'API-CT:'
+  prefix: 'CONCENTRATION'
   error:
     general: There was an unexpected error. Please try again.
-
+#Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://netflix:eureka@localhost:8761/eureka
