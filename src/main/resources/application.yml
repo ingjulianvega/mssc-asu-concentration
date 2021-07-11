@@ -31,15 +31,12 @@ server:
   servlet:
     context-path: /asu/v1/concentration
 #Logging
-logging:
-  level:
-    root: DEBUG
+#logging:
+#  level:
+#    root: DEBUG
 #Exceptions
 concentration:
-  success: The operation was successful.
-  prefix: 'CONCENTRATION'
-  error:
-    general: There was an unexpected error. Please try again.
+  api: @artifactId@
 #Eureka
 eureka:
   client:
