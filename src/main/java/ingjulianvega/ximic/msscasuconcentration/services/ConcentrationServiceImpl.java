@@ -11,6 +11,7 @@ import ingjulianvega.ximic.msscasuconcentration.web.model.ConcentrationList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -39,7 +40,14 @@ public class ConcentrationServiceImpl implements ConcentrationService {
         log.debug("getById()...");
         return concentrationMapper.concentrationEntityToConcentrationDto(
                 concentrationRepository.findById(id)
-                        .orElseThrow(() -> new ConcentrationException(ErrorCodeMessages.CONCENTRATION_TYPE_NOT_FOUND, "")));
+                        .orElseThrow(() -> ConcentrationException
+                                .builder()
+                                .httpStatus(HttpStatus.BAD_REQUEST)
+                                .apiCode(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_API_CODE)
+                                .error(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_ERROR)
+                                .message(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_MESSAGE)
+                                .solution(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_SOLUTION)
+                                .build()));
     }
 
     @Override
@@ -59,7 +67,14 @@ public class ConcentrationServiceImpl implements ConcentrationService {
     public void updateById(UUID id, Concentration concentration) {
         log.debug("updateById...");
         ConcentrationEntity concentrationEntity = concentrationRepository.findById(id)
-                .orElseThrow(() -> new ConcentrationException(ErrorCodeMessages.CONCENTRATION_TYPE_NOT_FOUND, ""));
+                .orElseThrow(() -> ConcentrationException
+                        .builder()
+                        .httpStatus(HttpStatus.BAD_REQUEST)
+                        .apiCode(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_API_CODE)
+                        .error(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_ERROR)
+                        .message(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_MESSAGE)
+                        .solution(ErrorCodeMessages.CONCENTRATION_NOT_FOUND_SOLUTION)
+                        .build());
 
         concentrationEntity.setName(concentration.getName());
         concentrationEntity.setAbbreviation(concentration.getAbbreviation());
